@@ -13,7 +13,7 @@ export default class Card extends Component {
           alt={ cardName }
           data-testid="image-card"
         />
-        { cardTrunfo ? <h3>Super Trunfo!</h3> : <br /> }
+        { cardTrunfo ? <h3 data-testid="trunfo-card">Super Trunfo</h3> : null }
         <p data-testid="description-card">
           { cardDescription }
         </p>
