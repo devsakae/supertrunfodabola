@@ -8,7 +8,7 @@ export default class Form extends Component {
       onSaveButtonClick } = this.props;
     return (
       <>
-        <h2>Crie sua carta!</h2>
+        <h1>Crie sua carta</h1>
         <form>
           <label htmlFor="name-input">
             Nome:
@@ -17,6 +17,17 @@ export default class Form extends Component {
               data-testid="name-input"
               value={ cardName }
               name="cardName"
+              onChange={ onInputChange }
+            />
+          </label>
+
+          <label htmlFor="image-input">
+            Imagem:
+            <input
+              name="cardImage"
+              type="text"
+              data-testid="image-input"
+              value={ cardImage }
               onChange={ onInputChange }
             />
           </label>
@@ -40,6 +51,7 @@ export default class Form extends Component {
               type="number"
               min="0"
               max="90"
+              placeholder="0"
               data-testid="attr1-input"
               value={ cardAttr1 }
               onChange={ onInputChange }
@@ -53,6 +65,7 @@ export default class Form extends Component {
               type="number"
               min="0"
               max="90"
+              placeholder="0"
               data-testid="attr2-input"
               value={ cardAttr2 }
               onChange={ onInputChange }
@@ -66,19 +79,9 @@ export default class Form extends Component {
               type="number"
               min="0"
               max="90"
+              placeholder="0"
               data-testid="attr3-input"
               value={ cardAttr3 }
-              onChange={ onInputChange }
-            />
-          </label>
-
-          <label htmlFor="image-input">
-            Imagem:
-            <input
-              name="cardImage"
-              type="text"
-              data-testid="image-input"
-              value={ cardImage }
               onChange={ onInputChange }
             />
           </label>
