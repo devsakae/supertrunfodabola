@@ -15,31 +15,35 @@ class App extends React.Component {
     isSaveButtonDisabled: true,
   };
 
-  onInputChange = ({ target }) => {
-    const { name, type, checked, value } = target;
+  checaSaveButton = () => {
     const { cardName, cardDescription, cardImage,
       cardAttr1, cardAttr2, cardAttr3 } = this.state;
+    let block = true;
+    let check1 = true;
+    let check2 = true;
+    let check3 = true;
+    const limit1 = 90;
+    const limit2 = 210;
+    if ((cardName.length === 0) || (cardDescription.length === 0)
+    || (cardImage.length === 0)) check1 = false;
+    // Refatorado pra usar + ao invés de Number por dica do Felipe Pinto
+    if (((+(cardAttr1) < 0) || (+(cardAttr1) > limit1))
+    || ((+(cardAttr2) < 0) || (+(cardAttr2) > limit1))
+    || ((+(cardAttr3) < 0) || (+(cardAttr3) > limit1))) check2 = false;
+    if ((+(cardAttr1) + +(cardAttr2) + +(cardAttr3)) > limit2) check3 = false;
+    if (check1 && check2 && check3) block = false;
+    this.setState({
+      isSaveButtonDisabled: block,
+    });
+  };
+
+  onInputChange = ({ target }) => {
+    const { name, type, checked, value } = target;
     const v = (type === 'checkbox') ? checked : value;
     this.setState({
       [name]: v,
-    }, () => {
-      let block = false;
-      let check1 = true;
-      let check2 = true;
-      let check3 = true;
-      let check4 = true;
-      let check5 = true;
-      const limite = 210;
-      if (cardName.length === 0) check1 = false;
-      if (cardDescription.length === 0) check2 = false;
-      if (cardImage.length === 0) check3 = false;
-      if ((Number(cardAttr1) < 0) || (Number(cardAttr2) < 0) || (Number(cardAttr3) < 0)) check4 = false;
-      if ((Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3)) > limite) check5 = false;
-      if (!check1 || !check2 || !check3 || !check4 || !check5) block = true;
-      this.setState({
-        isSaveButtonDisabled: block,
-      });
-    });
+      // Estava com delay de 1 clique, aí o Felipe Pinto disse pra passar no segundo argumento. Deu certo!
+    }, () => this.checaSaveButton());
   };
 
   render() {

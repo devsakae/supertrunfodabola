@@ -10,9 +10,10 @@ export default class Form extends Component {
       <>
         <h1>Crie sua carta</h1>
         <form>
-          <label htmlFor="name-input">
+          <label htmlFor="cardName">
             Nome:
             <input
+              id="cardName"
               type="text"
               data-testid="name-input"
               value={ cardName }
@@ -21,9 +22,10 @@ export default class Form extends Component {
             />
           </label>
 
-          <label htmlFor="image-input">
+          <label htmlFor="cardImage">
             Imagem:
             <input
+              id="cardImage"
               name="cardImage"
               type="text"
               data-testid="image-input"
@@ -32,9 +34,10 @@ export default class Form extends Component {
             />
           </label>
 
-          <label htmlFor="description-input">
+          <label htmlFor="cardDescription">
             Descrição:
             <textarea
+              id="cardDescription"
               name="cardDescription"
               cols="30"
               rows="10"
@@ -44,9 +47,10 @@ export default class Form extends Component {
             />
           </label>
 
-          <label htmlFor="attr1-input">
+          <label htmlFor="cardAttr1">
             Decisão:
             <input
+              id="cardAttr1"
               name="cardAttr1"
               type="number"
               min="0"
@@ -58,9 +62,10 @@ export default class Form extends Component {
             />
           </label>
 
-          <label htmlFor="attr2-input">
+          <label htmlFor="cardAttr2">
             Malandragem:
             <input
+              id="cardAttr2"
               name="cardAttr2"
               type="number"
               min="0"
@@ -72,9 +77,10 @@ export default class Form extends Component {
             />
           </label>
 
-          <label htmlFor="attr3-input">
+          <label htmlFor="cardAttr3">
             Firula:
             <input
+              id="cardAttr3"
               name="cardAttr3"
               type="number"
               min="0"
@@ -99,8 +105,9 @@ export default class Form extends Component {
             </select>
           </label>
 
-          <label htmlFor="trunfo-input">
+          <label htmlFor="cardTrunfo">
             <input
+              id="cardTrunfo"
               type="checkbox"
               name="cardTrunfo"
               data-testid="trunfo-input"
