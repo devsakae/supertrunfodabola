@@ -13,6 +13,7 @@ class App extends React.Component {
     cardRare: 'normal',
     cardTrunfo: false,
     isSaveButtonDisabled: true,
+    savedCards: [],
   };
 
   checaSaveButton = () => {
@@ -46,9 +47,23 @@ class App extends React.Component {
     }, () => this.checaSaveButton());
   };
 
+  zeraTudo = () => {
+    this.setState({
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardImage: '',
+      cardRare: 'normal',
+      cardTrunfo: false,
+      isSaveButtonDisabled: true,
+    });
+  };
+
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
-      cardRare, cardTrunfo, isSaveButtonDisabled } = this.state;
+      cardRare, cardTrunfo, isSaveButtonDisabled, savedCards } = this.state;
 
     return (
       <div>
@@ -66,6 +81,20 @@ class App extends React.Component {
               cardRare={ cardRare }
               cardTrunfo={ cardTrunfo }
               isSaveButtonDisabled={ isSaveButtonDisabled }
+              onSaveButtonClick={ () => {
+                const novoCard = {
+                  cardName,
+                  cardImage,
+                  cardDescription,
+                  cardAttr1,
+                  cardAttr2,
+                  cardAttr3,
+                  cardRare,
+                  cardTrunfo,
+                };
+                savedCards.push(novoCard);
+                this.zeraTudo();
+              } }
             />
           </div>
           <div className="criesuacarta">
@@ -80,6 +109,9 @@ class App extends React.Component {
               cardTrunfo={ cardTrunfo }
             />
           </div>
+        </div>
+        <div className="container">
+          [ espaço para salvar ]
         </div>
       </div>
     );
