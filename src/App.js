@@ -17,29 +17,29 @@ class App extends React.Component {
 
   onInputChange = ({ target }) => {
     const { name, type, checked, value } = target;
-    const { isSaveButtonDisabled, cardName, cardImage,
-      cardDescription, cardAttr1, cardAttr2, cardAttr3 } = this.state;
+    const { cardName, cardDescription, cardImage,
+      cardAttr1, cardAttr2, cardAttr3 } = this.state;
     const v = (type === 'checkbox') ? checked : value;
     this.setState({
       [name]: v,
-    });
-    if (isSaveButtonDisabled) {
-      let check1 = false;
-      let check2 = false;
-      let check3 = false;
-      let check4 = false;
-      if (cardName.length >= 1) check1 = cardName.length;
-      if (cardDescription.length >= 1) check2 = cardName.length;
-      if (cardImage.length >= 1) check3 = cardName.length;
-      const soma = cardAttr1 + cardAttr2 + cardAttr3;
+    }, () => {
+      let block = false;
+      let check1 = true;
+      let check2 = true;
+      let check3 = true;
+      let check4 = true;
+      let check5 = true;
       const limite = 210;
-      if (soma >= 0 && soma <= limite) check4 = true;
-      if (check1 && check2 && check3 && check4) {
-        this.setState({
-          isSaveButtonDisabled: false,
-        });
-      }
-    }
+      if (cardName.length === 0) check1 = false;
+      if (cardDescription.length === 0) check2 = false;
+      if (cardImage.length === 0) check3 = false;
+      if ((Number(cardAttr1) < 0) || (Number(cardAttr2) < 0) || (Number(cardAttr3) < 0)) check4 = false;
+      if ((Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3)) > limite) check5 = false;
+      if (!check1 || !check2 || !check3 || !check4 || !check5) block = true;
+      this.setState({
+        isSaveButtonDisabled: block,
+      });
+    });
   };
 
   render() {
