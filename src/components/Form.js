@@ -16,6 +16,7 @@ export default class Form extends Component {
               type="text"
               data-testid="name-input"
               value={ cardName }
+              name="cardName"
               onChange={ onInputChange }
             />
           </label>
@@ -23,8 +24,7 @@ export default class Form extends Component {
           <label htmlFor="description-input">
             Descrição:
             <textarea
-              name=""
-              id=""
+              name="cardDescription"
               cols="30"
               rows="10"
               data-testid="description-input"
@@ -34,9 +34,12 @@ export default class Form extends Component {
           </label>
 
           <label htmlFor="attr1-input">
-            Títulos:
+            Decisão:
             <input
+              name="cardAttr1"
               type="number"
+              min="0"
+              max="90"
               data-testid="attr1-input"
               value={ cardAttr1 }
               onChange={ onInputChange }
@@ -44,9 +47,12 @@ export default class Form extends Component {
           </label>
 
           <label htmlFor="attr2-input">
-            Partidas:
+            Malandragem:
             <input
+              name="cardAttr2"
               type="number"
+              min="0"
+              max="90"
               data-testid="attr2-input"
               value={ cardAttr2 }
               onChange={ onInputChange }
@@ -54,9 +60,12 @@ export default class Form extends Component {
           </label>
 
           <label htmlFor="attr3-input">
-            Gols:
+            Firula:
             <input
+              name="cardAttr3"
               type="number"
+              min="0"
+              max="90"
               data-testid="attr3-input"
               value={ cardAttr3 }
               onChange={ onInputChange }
@@ -64,8 +73,9 @@ export default class Form extends Component {
           </label>
 
           <label htmlFor="image-input">
-            Gols:
+            Imagem:
             <input
+              name="cardImage"
               type="text"
               data-testid="image-input"
               value={ cardImage }
@@ -76,6 +86,7 @@ export default class Form extends Component {
           <label htmlFor="rare-input">
             <select
               data-testid="rare-input"
+              name="cardRare"
               value={ cardRare }
               onChange={ onInputChange }
             >
@@ -88,6 +99,7 @@ export default class Form extends Component {
           <label htmlFor="trunfo-input">
             <input
               type="checkbox"
+              name="cardTrunfo"
               data-testid="trunfo-input"
               checked={ cardTrunfo }
               onChange={ onInputChange }
@@ -97,6 +109,7 @@ export default class Form extends Component {
 
           <button
             type="button"
+            name="isSaveButtonDisabled"
             data-testid="save-button"
             disabled={ isSaveButtonDisabled }
             onClick={ onSaveButtonClick }
