@@ -14,6 +14,7 @@ class App extends React.Component {
     cardTrunfo: false,
     isSaveButtonDisabled: true,
     savedCards: [],
+    noDeleteButton: true,
   };
 
   checaSaveButton = () => {
@@ -65,7 +66,8 @@ class App extends React.Component {
 
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
-      cardRare, cardTrunfo, isSaveButtonDisabled, savedCards, hasTrunfo } = this.state;
+      cardRare, cardTrunfo, isSaveButtonDisabled, savedCards,
+      hasTrunfo, noDeleteButton } = this.state;
 
     return (
       <div>
@@ -97,7 +99,6 @@ class App extends React.Component {
                 };
                 savedCards.push(novoCard);
                 this.zeraTudo();
-                console.log(savedCards);
               } }
             />
           </div>
@@ -111,6 +112,7 @@ class App extends React.Component {
               cardImage={ cardImage }
               cardRare={ cardRare }
               cardTrunfo={ cardTrunfo }
+              noDeleteButton={ noDeleteButton }
             />
           </div>
         </div>
@@ -126,6 +128,7 @@ class App extends React.Component {
               cardImage={ cada.cardImage }
               cardRare={ cada.cardRare }
               cardTrunfo={ cada.cardTrunfo }
+              noDeleteButton={ cada.noDeleteButton }
             />
           ))}
         </div>

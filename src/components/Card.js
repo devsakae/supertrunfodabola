@@ -4,10 +4,10 @@ import teste from 'prop-types';
 export default class Card extends Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2,
-      cardAttr3, cardImage, cardRare, cardTrunfo } = this.props;
+      cardAttr3, cardImage, cardRare, cardTrunfo, noDeleteButton } = this.props;
     return (
       <div className="card">
-        <h1>Preview</h1>
+        { noDeleteButton ? <h1>Preview</h1> : 'Botão de excluir' }
         <h2 data-testid="name-card">{ cardName }</h2>
         <img
           src={ cardImage }
