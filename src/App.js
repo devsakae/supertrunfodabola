@@ -97,6 +97,7 @@ class App extends React.Component {
                 };
                 savedCards.push(novoCard);
                 this.zeraTudo();
+                console.log(savedCards);
               } }
             />
           </div>
@@ -114,7 +115,19 @@ class App extends React.Component {
           </div>
         </div>
         <div className="container">
-          [ espaço para salvar ]
+          { savedCards.map((cada) => (
+            <Card
+              key={ cada.cardName }
+              cardName={ cada.cardName }
+              cardDescription={ cada.cardDescription }
+              cardAttr1={ cada.cardAttr1 }
+              cardAttr2={ cada.cardAttr2 }
+              cardAttr3={ cada.cardAttr3 }
+              cardImage={ cada.cardImage }
+              cardRare={ cada.cardRare }
+              cardTrunfo={ cada.cardTrunfo }
+            />
+          ))}
         </div>
       </div>
     );

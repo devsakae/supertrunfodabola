@@ -106,7 +106,7 @@ export default class Form extends Component {
             </select>
           </label>
 
-          { (hasTrunfo) ? 'Você já tem um Super Trunfo em seu baralho'
+          { (hasTrunfo) ? (<p>Você já tem um Super Trunfo em seu baralho</p>)
             : (
               <label htmlFor="cardTrunfo" className="superTrunfoSelect">
                 <input

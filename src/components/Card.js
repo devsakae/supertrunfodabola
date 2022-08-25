@@ -20,12 +20,18 @@ export default class Card extends Component {
         </p>
         <ul>
           <li className="attr" data-testid="attr1-card">
+            Decisão:
+            { (' ') }
             { cardAttr1 }
           </li>
           <li className="attr" data-testid="attr2-card">
+            Malandragem:
+            { (' ') }
             { cardAttr2 }
           </li>
           <li className="attr" data-testid="attr3-card">
+            Firula:
+            { (' ') }
             { cardAttr3 }
           </li>
         </ul>
