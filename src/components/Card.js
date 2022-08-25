@@ -7,7 +7,8 @@ export default class Card extends Component {
       cardAttr3, cardImage, cardRare, cardTrunfo, noDeleteButton } = this.props;
     return (
       <div className="card">
-        { noDeleteButton ? <h1>Preview</h1> : 'Botão de excluir' }
+        { noDeleteButton ? <h1>Preview</h1>
+          : <button type="button" data-testid="delete-button">Excluir</button> }
         <h2 data-testid="name-card">{ cardName }</h2>
         <img
           src={ cardImage }
@@ -52,4 +53,5 @@ Card.propTypes = {
   cardImage: teste.string,
   cardRare: teste.string,
   cardTrunfo: teste.bool,
+  hasTrunfo: teste.bool,
 }.isRequired;
