@@ -22,7 +22,21 @@ form {
 
 label {
   display: flex;
-  flex-direction: column;
+  width: 90%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+input, textarea, select { 
+  width: 60%;
+}
+
+
+.superTrunfoSelect {
+  display: flex;
+  justify-content: flex-start;
 }
 
 .container {

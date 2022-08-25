@@ -4,8 +4,8 @@ import teste from 'prop-types';
 export default class Form extends Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
-      cardRare, cardTrunfo, isSaveButtonDisabled, onInputChange,
-      onSaveButtonClick, hasTrunfo } = this.props;
+      cardRare, cardTrunfo, isSaveButtonDisabled, onInputChange, hasTrunfo,
+      onSaveButtonClick } = this.props;
     return (
       <>
         <h1>Crie sua carta</h1>
@@ -93,6 +93,7 @@ export default class Form extends Component {
           </label>
 
           <label htmlFor="rare-input">
+            Raridade:
             <select
               data-testid="rare-input"
               name="cardRare"
@@ -105,22 +106,20 @@ export default class Form extends Component {
             </select>
           </label>
 
-          <label htmlFor="cardTrunfo">
-            (
-            { hasTrunfo }
-            ? null :
-            <input
-              id="cardTrunfo"
-              type="checkbox"
-              name="cardTrunfo"
-              data-testid="trunfo-input"
-              checked={ cardTrunfo }
-              onChange={ onInputChange }
-            />
-            Super Trunfo
-          </label>
-          )
-
+          { (hasTrunfo) ? 'Você já tem um Super Trunfo em seu baralho'
+            : (
+              <label htmlFor="cardTrunfo" className="superTrunfoSelect">
+                <input
+                  id="cardTrunfo"
+                  type="checkbox"
+                  name="cardTrunfo"
+                  data-testid="trunfo-input"
+                  checked={ cardTrunfo }
+                  onChange={ onInputChange }
+                />
+                Super Trunfo
+              </label>
+            )}
           <button
             type="button"
             name="isSaveButtonDisabled"

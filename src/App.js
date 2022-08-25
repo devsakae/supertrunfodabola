@@ -48,6 +48,7 @@ class App extends React.Component {
   };
 
   zeraTudo = () => {
+    const { cardTrunfo } = this.state;
     this.setState({
       cardName: '',
       cardDescription: '',
@@ -57,7 +58,7 @@ class App extends React.Component {
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
-      hasTrunfo: true,
+      hasTrunfo: (cardTrunfo),
       isSaveButtonDisabled: true,
     });
   };
