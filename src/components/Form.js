@@ -5,7 +5,7 @@ export default class Form extends Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
       cardRare, cardTrunfo, isSaveButtonDisabled, onInputChange,
-      onSaveButtonClick } = this.props;
+      onSaveButtonClick, hasTrunfo } = this.props;
     return (
       <>
         <h1>Crie sua carta</h1>
@@ -106,6 +106,9 @@ export default class Form extends Component {
           </label>
 
           <label htmlFor="cardTrunfo">
+            (
+            { hasTrunfo }
+            ? null :
             <input
               id="cardTrunfo"
               type="checkbox"
@@ -116,6 +119,7 @@ export default class Form extends Component {
             />
             Super Trunfo
           </label>
+          )
 
           <button
             type="button"

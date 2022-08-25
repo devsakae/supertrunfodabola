@@ -57,13 +57,14 @@ class App extends React.Component {
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
+      hasTrunfo: true,
       isSaveButtonDisabled: true,
     });
   };
 
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
-      cardRare, cardTrunfo, isSaveButtonDisabled, savedCards } = this.state;
+      cardRare, cardTrunfo, isSaveButtonDisabled, savedCards, hasTrunfo } = this.state;
 
     return (
       <div>
@@ -81,6 +82,7 @@ class App extends React.Component {
               cardRare={ cardRare }
               cardTrunfo={ cardTrunfo }
               isSaveButtonDisabled={ isSaveButtonDisabled }
+              hasTrunfo={ hasTrunfo }
               onSaveButtonClick={ () => {
                 const novoCard = {
                   cardName,
