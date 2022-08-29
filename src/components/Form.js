@@ -4,11 +4,11 @@ import teste from 'prop-types';
 export default class Form extends Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
-      cardRare, isSaveButtonDisabled, onInputChange, hasTrunfo,
+      cardRare, isSaveButtonDisabled, onInputChange, hasTrunfo, cardTrunfo,
       onSaveButtonClick } = this.props;
     return (
       <>
-        <h1>Crie sua carta</h1>
+        <h2>Crie sua carta</h2>
         <form>
           <label htmlFor="cardName">
             Nome:
@@ -113,6 +113,7 @@ export default class Form extends Component {
                   id="cardTrunfo"
                   type="checkbox"
                   name="cardTrunfo"
+                  checked={ cardTrunfo }
                   data-testid="trunfo-input"
                   onChange={ onInputChange }
                 />

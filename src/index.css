@@ -20,10 +20,16 @@ code {
 }
 
 h1 {
+  color: white;
   text-align: center;
 }
 
-/* button {
+h2 {
+  text-align: center;
+  margin: 20px auto;
+}
+
+button {
   width: 320px;
   height: 30px;
   margin: 0 auto;
@@ -48,7 +54,6 @@ input, textarea, select {
   font-size: 1rem;
   color: #656880;
 }
-
 
 .superTrunfoSelect {
   display: flex;
@@ -177,4 +182,4 @@ input, textarea, select {
   padding: 6px;
   font-weight: 1000;
   font-size: medium;
-} */
+}

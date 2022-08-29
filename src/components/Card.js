@@ -8,7 +8,7 @@ export default class Card extends Component {
       noDeleteButton, delCard } = this.props;
     return (
       <div className={ noDeleteButton }>
-        { noDeleteButton ? <h1>Preview</h1>
+        { noDeleteButton ? <h2>Preview</h2>
           : (
             <button
               name={ cardName }
