@@ -4,7 +4,7 @@ import teste from 'prop-types';
 export default class Form extends Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
-      cardRare, cardTrunfo, isSaveButtonDisabled, onInputChange, hasTrunfo,
+      cardRare, isSaveButtonDisabled, onInputChange, hasTrunfo,
       onSaveButtonClick } = this.props;
     return (
       <>
@@ -114,7 +114,6 @@ export default class Form extends Component {
                   type="checkbox"
                   name="cardTrunfo"
                   data-testid="trunfo-input"
-                  checked={ cardTrunfo }
                   onChange={ onInputChange }
                 />
                 Super Trunfo

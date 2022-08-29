@@ -59,8 +59,18 @@ class App extends React.Component {
       cardAttr3: '0',
       cardImage: '',
       cardRare: 'normal',
-      hasTrunfo: (cardTrunfo),
+      cardTrunfo: false,
+      hasTrunfo: cardTrunfo,
       isSaveButtonDisabled: true,
+    });
+  };
+
+  delCard = (event) => {
+    const { savedCards } = this.state;
+    const novoArray = savedCards.filter((card) => card.cardName !== event.target.name);
+    this.setState({
+      savedCards: novoArray,
+      hasTrunfo: false,
     });
   };
 
@@ -129,6 +139,7 @@ class App extends React.Component {
               cardRare={ cada.cardRare }
               cardTrunfo={ cada.cardTrunfo }
               noDeleteButton={ cada.noDeleteButton }
+              delCard={ this.delCard }
             />
           ))}
         </div>
