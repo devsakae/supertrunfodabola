@@ -86,37 +86,37 @@ class App extends React.Component {
     return (
       <div>
         <center><h1>Super Trunfo da Bola</h1></center>
-        <div className="container">
-          <div className="criesuacarta">
-            <Form
-              onInputChange={ this.onInputChange }
-              cardName={ cardName }
-              cardDescription={ cardDescription }
-              cardAttr1={ cardAttr1 }
-              cardAttr2={ cardAttr2 }
-              cardAttr3={ cardAttr3 }
-              cardImage={ cardImage }
-              cardRare={ cardRare }
-              cardTrunfo={ cardTrunfo }
-              isSaveButtonDisabled={ isSaveButtonDisabled }
-              hasTrunfo={ hasTrunfo }
-              onSaveButtonClick={ () => {
-                const novoCard = {
-                  cardName,
-                  cardImage,
-                  cardDescription,
-                  cardAttr1,
-                  cardAttr2,
-                  cardAttr3,
-                  cardRare,
-                  cardTrunfo,
-                };
-                savedCards.push(novoCard);
-                this.zeraTudo();
-              } }
-            />
-          </div>
-          <div className="criesuacarta">
+        <div className="formenu">
+          <Form
+            onInputChange={ this.onInputChange }
+            cardName={ cardName }
+            cardDescription={ cardDescription }
+            cardAttr1={ cardAttr1 }
+            cardAttr2={ cardAttr2 }
+            cardAttr3={ cardAttr3 }
+            cardImage={ cardImage }
+            cardRare={ cardRare }
+            cardTrunfo={ cardTrunfo }
+            isSaveButtonDisabled={ isSaveButtonDisabled }
+            hasTrunfo={ hasTrunfo }
+            onSaveButtonClick={ () => {
+              const novoCard = {
+                cardName,
+                cardImage,
+                cardDescription,
+                cardAttr1,
+                cardAttr2,
+                cardAttr3,
+                cardRare,
+                cardTrunfo,
+              };
+              savedCards.push(novoCard);
+              this.zeraTudo();
+            } }
+          />
+        </div>
+        <div className="cards">
+          <div className="onlyyou">
             <Card
               cardName={ cardName }
               cardDescription={ cardDescription }
@@ -129,23 +129,31 @@ class App extends React.Component {
               noDeleteButton={ noDeleteButton }
             />
           </div>
-        </div>
-        <div className="container">
-          { savedCards.map((cada) => (
-            <Card
-              key={ cada.cardName }
-              cardName={ cada.cardName }
-              cardDescription={ cada.cardDescription }
-              cardAttr1={ cada.cardAttr1 }
-              cardAttr2={ cada.cardAttr2 }
-              cardAttr3={ cada.cardAttr3 }
-              cardImage={ cada.cardImage }
-              cardRare={ cada.cardRare }
-              cardTrunfo={ cada.cardTrunfo }
-              noDeleteButton={ cada.noDeleteButton }
-              delCard={ this.delCard }
-            />
-          ))}
+          { (savedCards.length > 0) && (
+            <>
+              <div>
+                <h1>Coleção</h1>
+              </div>
+              <div className="allcards">
+                { savedCards?.map((cada) => (
+                  <Card
+                    key={ cada.cardName }
+                    cardName={ cada.cardName }
+                    cardDescription={ cada.cardDescription }
+                    cardAttr1={ cada.cardAttr1 }
+                    cardAttr2={ cada.cardAttr2 }
+                    cardAttr3={ cada.cardAttr3 }
+                    cardImage={ cada.cardImage }
+                    cardRare={ cada.cardRare }
+                    cardTrunfo={ cada.cardTrunfo }
+                    noDeleteButton={ cada.noDeleteButton }
+                    delCard={ this.delCard }
+                  />
+                ))}
+              </div>
+            </>
+          ) }
+          ;
         </div>
       </div>
     );

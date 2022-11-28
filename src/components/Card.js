@@ -7,47 +7,44 @@ export default class Card extends Component {
       cardAttr3, cardImage, cardRare, cardTrunfo,
       noDeleteButton, delCard } = this.props;
     return (
-      <div className={ noDeleteButton }>
-        { noDeleteButton ? <h2>Preview</h2>
-          : (
+      <div className="preview">
+        <div className="cardcontainer">
+          { !noDeleteButton && (
             <button
               name={ cardName }
               type="button"
-              data-testid="delete-button"
               hidden={ noDeleteButton }
               onClick={ delCard }
             >
               Excluir
             </button>) }
-        <div className="cardcontainer">
           <div className="cover-photo">
             <img
               src={ cardImage }
               className="profile"
               alt={ cardName }
-              data-testid="image-card"
             />
           </div>
 
           <div className="profile-name" data-testid="name-card">{ cardName }</div>
           <div className="rarity">
             { cardTrunfo && <p className="st" data-testid="trunfo-card">Super Trunfo</p> }
-            <p className={ cardRare } data-testid="rare-card">
+            <p className={ cardRare }>
               { cardRare }
             </p>
           </div>
-          <p className="about" data-testid="description-card">{ cardDescription }</p>
+          <p className="about">{ cardDescription }</p>
 
           <div className="attr">
-            <p className="points" data-testid="attr1-card">
+            <p className="points">
               { cardAttr1 }
               { ' ⚽ decisão' }
             </p>
-            <p className="points" data-testid="attr2-card">
+            <p className="points">
               { cardAttr2 }
               { ' 👀 malandragem' }
             </p>
-            <p className="points" data-testid="attr3-card">
+            <p className="points">
               { cardAttr3 }
               { ' 🍥 firula' }
             </p>

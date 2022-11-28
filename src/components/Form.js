@@ -29,7 +29,7 @@ export default class Form extends Component {
         <textarea
           id="cardDescription"
           name="cardDescription"
-          rows="10"
+          rows="5"
           value={ cardDescription }
           placeholder="Descrição"
           onChange={ onInputChange }
