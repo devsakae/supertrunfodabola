@@ -6,9 +6,9 @@ class App extends React.Component {
   state = {
     cardName: '',
     cardDescription: '',
-    cardAttr1: '0',
-    cardAttr2: '0',
-    cardAttr3: '0',
+    cardAttr1: '',
+    cardAttr2: '',
+    cardAttr3: '',
     cardImage: '',
     cardRare: 'normal',
     cardTrunfo: false,
@@ -17,6 +17,10 @@ class App extends React.Component {
     savedCards: [],
     noDeleteButton: true,
   };
+
+  componentDidMount() {
+    document.title = 'Super Trunfo da Bola';
+  }
 
   checaSaveButton = () => {
     const { cardName, cardDescription, cardImage,
@@ -54,9 +58,9 @@ class App extends React.Component {
     this.setState({
       cardName: '',
       cardDescription: '',
-      cardAttr1: '0',
-      cardAttr2: '0',
-      cardAttr3: '0',
+      cardAttr1: '',
+      cardAttr2: '',
+      cardAttr3: '',
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,

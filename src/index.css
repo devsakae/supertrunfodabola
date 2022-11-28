@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fasthand&family=Nerko+One&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -25,6 +27,9 @@ h1 {
 }
 
 h2 {
+  font-family: 'Nerko One', cursive;
+  font-size: xx-large;
+  letter-spacing: 1.5px;
   text-align: center;
   margin: 20px auto;
 }
@@ -37,27 +42,124 @@ button {
 
 form {
   box-sizing: border-box;
+  padding-bottom: 18px;
+  display: flex;
+  flex-direction: column;
 }
 
 label {
   display: flex;
+  align-items: center;
+}
+
+.row {
+  padding: 10px 0 10px 0;
+  margin: 0 auto;
   width: 90%;
+  display: flex;
+  flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
-  padding: 5px;
-  margin: 0 auto;
 }
 
-input, textarea, select { 
-  border: 2px solid #DADDEC;
-  margin: 5px 0 10px;
-  font-size: 1rem;
-  color: #656880;
+.row input {
+  text-align: center;
 }
 
-.superTrunfoSelect {
+.totalskills {
+  width: 90%;
+  align-items: center;
+  line-height: 28px;
+  border: 2px solid transparent;
+  border-bottom-color: #777;
+  padding: .2rem 0;
+  outline: none;
+  background-color: transparent;
+  color: #0d0c22;
+  transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.sk {
+  min-width: 15%;
+  font-size: small;
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.strarity {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+.stline {
+  display: flex;
+  align-items: center;
+}
+
+.stline input {
+  margin: 10px auto;
+}
+
+.stline select {
+  margin-left: 10px;
+}
+
+.cardTrunfo {
+  margin-left: 10px;
+  min-width: 150px;
+}
+
+/* From uiverse.io by @alexruix */
+input {
+  width: 90%;
+  align-items: center;
+  line-height: 28px;
+  border: 2px solid transparent;
+  border-bottom-color: #777;
+  padding: .2rem 0;
+  outline: none;
+  background-color: transparent;
+  color: #0d0c22;
+  transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  margin: 0 auto;
+  margin-bottom: 20px;
+ }
+ 
+ input:focus, input:hover {
+  outline: none;
+  padding: .2rem 1rem;
+  border-radius: 1rem;
+  border-color: #7a9cc6;
+ }
+ 
+ input::placeholder {
+  color: #777;
+ }
+ 
+ input:focus::placeholder {
+  opacity: 0;
+  transition: opacity .3s;
+ }
+ 
+
+textarea { 
+  width: 90%;
+  border: 2px solid transparent;
+  border-bottom-color: #777;
+  padding: .2rem 0;
+  outline: none;
+  background-color: transparent;
+  color: #0d0c22;
+  transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 .container {
@@ -182,4 +284,41 @@ input, textarea, select {
   padding: 6px;
   font-weight: 1000;
   font-size: medium;
+}
+
+/* CSS template by https://markodenic.com/tools/buttons-generator/ */
+.css-button-sliding-to-left--grey {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  z-index: 0;
+  background: #fff;
+  overflow: hidden;
+  border: 2px solid #495057;
+  color: #495057;
+}
+.css-button-sliding-to-left--grey:hover {
+  color: #fff;
+}
+.css-button-sliding-to-left--grey:hover:after {
+  width: 100%;
+}
+.css-button-sliding-to-left--grey:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  transition: all 0.3s ease;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background: #495057;
 }

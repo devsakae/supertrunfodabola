@@ -6,96 +6,88 @@ export default class Form extends Component {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
       cardRare, isSaveButtonDisabled, onInputChange, hasTrunfo, cardTrunfo,
       onSaveButtonClick } = this.props;
+    const MAX_SKILLS_POINT = 210;
     return (
-      <>
+      <form>
         <h2>Crie sua carta</h2>
-        <form>
-          <label htmlFor="cardName">
-            Nome:
-            <input
-              id="cardName"
-              type="text"
-              data-testid="name-input"
-              value={ cardName }
-              name="cardName"
-              onChange={ onInputChange }
-            />
-          </label>
+        <input
+          id="cardName"
+          type="text"
+          value={ cardName }
+          name="cardName"
+          placeholder="Nome"
+          onChange={ onInputChange }
+        />
+        <input
+          id="cardImage"
+          name="cardImage"
+          type="text"
+          value={ cardImage }
+          onChange={ onInputChange }
+          placeholder="Link da imagem (eg: http://www.pudim.com.br)"
+        />
+        <textarea
+          id="cardDescription"
+          name="cardDescription"
+          rows="10"
+          value={ cardDescription }
+          placeholder="Descrição"
+          onChange={ onInputChange }
+        />
 
-          <label htmlFor="cardImage">
-            Imagem:
-            <input
-              id="cardImage"
-              name="cardImage"
-              type="text"
-              data-testid="image-input"
-              value={ cardImage }
-              onChange={ onInputChange }
-            />
-          </label>
-
-          <label htmlFor="cardDescription">
-            Descrição:
-            <textarea
-              id="cardDescription"
-              name="cardDescription"
-              cols="30"
-              rows="10"
-              data-testid="description-input"
-              value={ cardDescription }
-              onChange={ onInputChange }
-            />
-          </label>
-
-          <label htmlFor="cardAttr1">
-            Decisão:
+        <div className="row">
+          <div className="sk">
+            Pontos
+            <span className="totalskills">
+              { MAX_SKILLS_POINT - cardAttr1 - cardAttr2 - cardAttr3 }
+            </span>
+          </div>
+          <div className="sk">
+            Decisão
             <input
               id="cardAttr1"
               name="cardAttr1"
               type="number"
               min="0"
               max="90"
-              placeholder="0"
-              data-testid="attr1-input"
+              placeholder="0-90"
               value={ cardAttr1 }
               onChange={ onInputChange }
             />
-          </label>
+          </div>
 
-          <label htmlFor="cardAttr2">
-            Malandragem:
+          <div className="sk">
+            Malandragem
             <input
               id="cardAttr2"
               name="cardAttr2"
               type="number"
               min="0"
               max="90"
-              placeholder="0"
-              data-testid="attr2-input"
+              placeholder="0-90"
               value={ cardAttr2 }
               onChange={ onInputChange }
             />
-          </label>
-
-          <label htmlFor="cardAttr3">
-            Firula:
+          </div>
+          <div className="sk">
+            Firula
             <input
               id="cardAttr3"
               name="cardAttr3"
               type="number"
               min="0"
               max="90"
-              placeholder="0"
-              data-testid="attr3-input"
+              placeholder="0-90"
               value={ cardAttr3 }
               onChange={ onInputChange }
             />
-          </label>
+          </div>
+        </div>
 
-          <label htmlFor="rare-input">
+        <div className="strarity">
+          <div className="stline">
             Raridade:
             <select
-              data-testid="rare-input"
               name="cardRare"
               value={ cardRare }
               onChange={ onInputChange }
@@ -104,33 +96,35 @@ export default class Form extends Component {
               <option value="raro">raro</option>
               <option value="muito raro">muito raro</option>
             </select>
-          </label>
-
-          { hasTrunfo ? (<p>Você já tem um Super Trunfo em seu baralho</p>)
-            : (
-              <label htmlFor="cardTrunfo" className="superTrunfoSelect">
-                <input
-                  id="cardTrunfo"
-                  type="checkbox"
-                  name="cardTrunfo"
-                  checked={ cardTrunfo }
-                  data-testid="trunfo-input"
-                  onChange={ onInputChange }
-                />
-                Super Trunfo
-              </label>
-            )}
-          <button
-            type="button"
-            name="isSaveButtonDisabled"
-            data-testid="save-button"
-            disabled={ isSaveButtonDisabled }
-            onClick={ onSaveButtonClick }
-          >
-            Salvar
-          </button>
-        </form>
-      </>
+          </div>
+          <div className="stline">
+            { hasTrunfo ? (<span>Você já tem um Super Trunfo em seu baralho</span>)
+              : (
+                <label htmlFor="cardTrunfo">
+                  <input
+                    id="cardTrunfo"
+                    type="checkbox"
+                    name="cardTrunfo"
+                    checked={ cardTrunfo }
+                    onChange={ onInputChange }
+                  />
+                  <span className="cardTrunfo">
+                    Super Trunfo
+                  </span>
+                </label>
+              )}
+          </div>
+        </div>
+        <button
+          className="css-button-sliding-to-left--grey:hover"
+          type="button"
+          name="isSaveButtonDisabled"
+          disabled={ isSaveButtonDisabled }
+          onClick={ onSaveButtonClick }
+        >
+          Salvar
+        </button>
+      </form>
     );
   }
 }
