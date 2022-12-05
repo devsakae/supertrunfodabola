@@ -3,7 +3,7 @@
 ## O que é?
 Um sistema de criação de cartas de Super Trunfo com tema de futebol, criado em React.
 
-[Demo](http://devsakae.me/super_trunfo_da_bola/)
+[Demo]([https://supertrunfo-black.vercel.app/)
 
 ## Screenshots
 <img src="https://github.com/devsakae/super_trunfo_da_bola/blob/main/public/mockup-supertrunfo.png" alt="Imagem do projeto rodando" />
